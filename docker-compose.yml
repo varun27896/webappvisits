@@ -1,0 +1,10 @@
+version: '3' #version of the docker compose
+ #two different services that take the form of two containers
+services: 
+    redis-server:
+        image: 'redis'
+    node-app:
+        restart: on-failure
+        build: . #look for the dockerfile and use that to build this image
+        ports: 
+            - "4001:8081" #mapping the port of the local machine to the port of the container
